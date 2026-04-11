@@ -3,7 +3,7 @@ description: Validate architectures and build a matrix with arch, runner OS, and
 
 inputs:
   architectures:
-    description: Architectures to build (JSON array, e.g., '["amd64", "aarch64"]')
+    description: Architectures to build (JSON array, e.g., '["amd64", "aarch64", "riscv64"]')
     required: true
   image-name:
     description: Image name without a tag (e.g., "base-python")
@@ -34,8 +34,9 @@ runs:
           case "${arch}" in
             amd64)   os="ubuntu-24.04" ;;
             aarch64) os="ubuntu-24.04-arm" ;;
+            riscv64) os="ubuntu-24.04-riscv" ;;
             *)
-              echo "::error::Unsupported architecture: ${arch}. Supported values: amd64, aarch64"
+              echo "::error::Unsupported architecture: ${arch}. Supported values: amd64, aarch64, riscv64"
               exit 1
               ;;
           esac
