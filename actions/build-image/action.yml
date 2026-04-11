@@ -3,7 +3,7 @@ description: Build, and optionally push and sign a single-arch container image
 
 inputs:
   arch:
-    description: Architecture to build (e.g., "amd64")
+    description: Architecture to build (e.g., "riscv64")
     required: true
   build-args:
     description: Additional build arguments (key=value format, one per line)
@@ -65,7 +65,7 @@ inputs:
     required: false
     default: ""
   image:
-    description: Full image name without tag (e.g., "ghcr.io/home-assistant/amd64-base")
+    description: Full image name without tag (e.g., "ghcr.io/home-assistant/riscv64-base")
     required: true
   image-tags:
     description: Image tags, one per line
